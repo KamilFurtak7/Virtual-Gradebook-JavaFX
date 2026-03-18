@@ -6,9 +6,11 @@ module pl.dziennik.virtualgradebookfx {
     exports pl.dziennik.virtualgradebookfx.app;
     exports pl.dziennik.virtualgradebookfx.controller;
     exports pl.dziennik.virtualgradebookfx.model.user;
+    exports pl.dziennik.virtualgradebookfx.model.school;
     exports pl.dziennik.virtualgradebookfx.service.interfaces;
     exports pl.dziennik.virtualgradebookfx.service.impl;
     exports pl.dziennik.virtualgradebookfx.persistence;
+    exports pl.dziennik.virtualgradebookfx.util;
 
     opens pl.dziennik.virtualgradebookfx.app to javafx.fxml;
     opens pl.dziennik.virtualgradebookfx.controller to javafx.fxml;

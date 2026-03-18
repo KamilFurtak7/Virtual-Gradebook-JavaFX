@@ -9,6 +9,7 @@ import pl.dziennik.virtualgradebookfx.model.user.Role;
 import pl.dziennik.virtualgradebookfx.model.user.User;
 import pl.dziennik.virtualgradebookfx.service.impl.AuthenticationServiceImpl;
 import pl.dziennik.virtualgradebookfx.service.interfaces.AuthenticationService;
+import pl.dziennik.virtualgradebookfx.util.Session;
 
 public class LoginController {
 
@@ -40,12 +41,14 @@ public class LoginController {
             return;
         }
 
+        Session.setLoggedUser(user);
+
         if (user.getRole() == Role.STUDENT) {
             SceneManager.switchTo("/fxml/student/student-dashboard-view.fxml", "Panel ucznia");
         } else if (user.getRole() == Role.TEACHER) {
             SceneManager.switchTo("/fxml/teacher/teacher-dashboard-view.fxml", "Panel nauczyciela");
-        } else if (user.getRole() == Role.PRINCIPAL) {
-            SceneManager.switchTo("/fxml/principal/principal-dashboard-view.fxml", "Panel dyrektora");
+        } else if (user.getRole() == Role.DEAN) {
+            SceneManager.switchTo("/fxml/dean/dean-dashboard-view.fxml", "Panel dyrektora");
         }
     }
 }

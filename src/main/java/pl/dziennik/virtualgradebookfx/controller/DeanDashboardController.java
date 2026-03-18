@@ -3,7 +3,7 @@ package pl.dziennik.virtualgradebookfx.controller;
 import javafx.fxml.FXML;
 import pl.dziennik.virtualgradebookfx.app.SceneManager;
 
-public class PrincipalDashboardController {
+public class DeanDashboardController {
 
     @FXML
     private void handleLogout() {

@@ -1,6 +1,6 @@
 package pl.dziennik.virtualgradebookfx.service.impl;
 
-import pl.dziennik.virtualgradebookfx.model.user.Principal;
+import pl.dziennik.virtualgradebookfx.model.user.Dean;
 import pl.dziennik.virtualgradebookfx.model.user.Role;
 import pl.dziennik.virtualgradebookfx.model.user.Student;
 import pl.dziennik.virtualgradebookfx.model.user.Teacher;
@@ -45,8 +45,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                         return new Teacher(userLogin, userPassword, firstName, lastName, subjectName);
                     }
 
-                    if (role == Role.PRINCIPAL) {
-                        return new Principal(userLogin, userPassword, firstName, lastName);
+                    if (role == Role.DEAN) {
+                        return new Dean(userLogin, userPassword, firstName, lastName);
                     }
                 }
             }
