@@ -12,4 +12,10 @@ public interface GradeService {
     List<StudentSubject> getStudentSubjects(String studentLogin);
     double calculateWeightedAverage(List<Grade> grades);
     double calculateOverallEctsAverage(String studentLogin);
+
+    List<Grade> getGradesByTeacher(String teacherLogin);
+    void addGrade(String studentLogin, String subjectName, double gradeValue, int gradeWeight, String description, String teacherLogin);
+    void updateGrade(int gradeId, double gradeValue, int gradeWeight, String description);
+    void deleteGrade(int gradeId);
+    List<Grade> getGradesForStudentSubjectAndTeacher(String studentLogin, String subjectName, String teacherLogin);
 }

@@ -486,3 +486,75 @@
     -fx-padding: 8 12 8 12;
     -fx-cursor: hand;
 }
+
+.teacher-grades-layout {
+    -fx-spacing: 16;
+}
+
+.teacher-form-panel {
+    -fx-background-color: #f8fbff;
+    -fx-background-radius: 18;
+    -fx-border-color: #dbe4f3;
+    -fx-border-radius: 18;
+    -fx-padding: 18;
+    -fx-spacing: 10;
+    -fx-min-width: 340;
+    -fx-pref-width: 360;
+}
+
+.teacher-grades-list {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 18;
+    -fx-border-color: #dbe4f3;
+    -fx-border-radius: 18;
+    -fx-padding: 18;
+    -fx-spacing: 12;
+}
+
+.teacher-grade-card {
+    -fx-background-color: #f8fbff;
+    -fx-background-radius: 16;
+    -fx-border-color: #dbe4f3;
+    -fx-border-radius: 16;
+    -fx-padding: 14;
+    -fx-spacing: 6;
+}
+
+.teacher-grade-title {
+    -fx-text-fill: #1f2a44;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.teacher-grade-text {
+    -fx-text-fill: #2f3b52;
+    -fx-font-size: 14px;
+}
+
+.teacher-action-button {
+    -fx-background-color: #314a7a;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 8 12 8 12;
+    -fx-cursor: hand;
+}
+
+.teacher-action-button:hover {
+    -fx-background-color: #253b64;
+}
+
+.teacher-delete-button {
+    -fx-background-color: #ff6b6b;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 8 12 8 12;
+    -fx-cursor: hand;
+}
+
+.teacher-delete-button:hover {
+    -fx-background-color: #f25555;
+}
