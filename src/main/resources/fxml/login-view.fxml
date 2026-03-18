@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.dziennik.virtualgradebookfx.controller.LoginController">
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Virtual Gradebook FX"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <Label text="Logowanie"
+           style="-fx-font-size: 18px;"/>
+
+    <TextField fx:id="loginField"
+               promptText="Login"
+               maxWidth="250"/>
+
+    <PasswordField fx:id="passwordField"
+                   promptText="Hasło"
+                   maxWidth="250"/>
+
+    <Button text="Zaloguj się"
+            onAction="#handleLogin"
+            maxWidth="250"/>
+
+    <Label fx:id="messageLabel"
+           text=""
+           style="-fx-text-fill: red; -fx-font-size: 14px;"/>
+
+</VBox>
