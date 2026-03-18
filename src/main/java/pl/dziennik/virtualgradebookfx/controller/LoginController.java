@@ -10,6 +10,7 @@ import pl.dziennik.virtualgradebookfx.model.user.User;
 import pl.dziennik.virtualgradebookfx.service.impl.AuthenticationServiceImpl;
 import pl.dziennik.virtualgradebookfx.service.interfaces.AuthenticationService;
 import pl.dziennik.virtualgradebookfx.util.Session;
+import pl.dziennik.virtualgradebookfx.app.AppServices;
 
 public class LoginController {
 
@@ -31,6 +32,7 @@ public class LoginController {
 
         if (login.isEmpty() || password.isEmpty()) {
             messageLabel.setText("Wypełnij login i hasło.");
+            AppServices.getAuditLogService().logEvent("unknown", "LOGOWANIE_BŁĄD", "Nie podano loginu lub hasła");
             return;
         }
 
@@ -38,10 +40,13 @@ public class LoginController {
 
         if (user == null) {
             messageLabel.setText("Nieprawidłowy login lub hasło.");
+            AppServices.getAuditLogService().logEvent(login, "LOGOWANIE_BŁĄD", "Nieudana próba logowania");
             return;
         }
 
         Session.setLoggedUser(user);
+        AppServices.getAuditLogService().logEvent(user.getLogin(), "LOGOWANIE", "Zalogowano pomyślnie");
+
 
         if (user.getRole() == Role.STUDENT) {
             SceneManager.switchTo("/fxml/student/student-dashboard-view.fxml", "Panel ucznia");

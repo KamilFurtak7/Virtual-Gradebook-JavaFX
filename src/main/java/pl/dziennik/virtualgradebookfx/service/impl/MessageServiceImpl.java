@@ -45,4 +45,72 @@ public class MessageServiceImpl implements MessageService {
 
         return messages;
     }
+
+    @Override
+    public List<Message> getSentMessagesForUser(String senderLogin) {
+        List<Message> messages = new ArrayList<>();
+
+        String sql = "SELECT * FROM messages WHERE sender_login = ? ORDER BY id DESC";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, senderLogin);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Message message = new Message(
+                            resultSet.getInt("id"),
+                            resultSet.getString("sender_login"),
+                            resultSet.getString("receiver_login"),
+                            resultSet.getString("subject"),
+                            resultSet.getString("content"),
+                            resultSet.getString("sent_date"),
+                            resultSet.getBoolean("is_read")
+                    );
+                    messages.add(message);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return messages;
+    }
+
+    @Override
+    public void markMessageAsRead(int messageId) {
+        String sql = "UPDATE messages SET is_read = TRUE WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, messageId);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void sendMessage(String senderLogin, String receiverLogin, String subject, String content, String sentDate) {
+        String sql = "INSERT INTO messages (sender_login, receiver_login, subject, content, sent_date, is_read) VALUES (?, ?, ?, ?, ?, FALSE)";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, senderLogin);
+            statement.setString(2, receiverLogin);
+            statement.setString(3, subject);
+            statement.setString(4, content);
+            statement.setString(5, sentDate);
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -14,22 +14,22 @@ import java.util.List;
 public class TimetableServiceImpl implements TimetableService {
 
     @Override
-    public List<TimetableEntry> getTimetableForStudent(String studentLogin) {
+    public List<TimetableEntry> getTimetableForClass(String className) {
         List<TimetableEntry> entries = new ArrayList<>();
 
-        String sql = "SELECT * FROM timetable WHERE student_login = ? ORDER BY " +
+        String sql = "SELECT * FROM timetable WHERE class_name = ? ORDER BY " +
                 "FIELD(day_of_week, 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek'), start_time";
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1, studentLogin);
+            statement.setString(1, className);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     TimetableEntry entry = new TimetableEntry(
                             resultSet.getInt("id"),
-                            resultSet.getString("student_login"),
+                            resultSet.getString("class_name"),
                             resultSet.getString("day_of_week"),
                             resultSet.getString("start_time"),
                             resultSet.getString("end_time"),

@@ -2,7 +2,7 @@ package pl.dziennik.virtualgradebookfx.model.school;
 
 public class TimetableEntry {
     private int id;
-    private String studentLogin;
+    private String className;
     private String dayOfWeek;
     private String startTime;
     private String endTime;
@@ -13,10 +13,10 @@ public class TimetableEntry {
     public TimetableEntry() {
     }
 
-    public TimetableEntry(int id, String studentLogin, String dayOfWeek, String startTime, String endTime,
+    public TimetableEntry(int id, String className, String dayOfWeek, String startTime, String endTime,
                           String subjectName, String teacherName, String room) {
         this.id = id;
-        this.studentLogin = studentLogin;
+        this.className = className;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -29,8 +29,8 @@ public class TimetableEntry {
         return id;
     }
 
-    public String getStudentLogin() {
-        return studentLogin;
+    public String getClassName() {
+        return className;
     }
 
     public String getDayOfWeek() {
@@ -61,8 +61,8 @@ public class TimetableEntry {
         this.id = id;
     }
 
-    public void setStudentLogin(String studentLogin) {
-        this.studentLogin = studentLogin;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public void setDayOfWeek(String dayOfWeek) {
