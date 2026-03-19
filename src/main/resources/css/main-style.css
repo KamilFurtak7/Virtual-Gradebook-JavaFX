@@ -558,3 +558,11 @@
 .teacher-delete-button:hover {
     -fx-background-color: #f25555;
 }
+.dean-student-section {
+    -fx-background-color: #f8fbff;
+    -fx-background-radius: 16;
+    -fx-border-color: #dbe4f3;
+    -fx-border-radius: 16;
+    -fx-padding: 14;
+    -fx-spacing: 8;
+}
